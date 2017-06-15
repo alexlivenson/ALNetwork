@@ -14,6 +14,9 @@
 		7F33BC471EF2F23200CEAC06 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F33BC431EF2F23200CEAC06 /* RxBlocking.framework */; };
 		7F33BC481EF2F23200CEAC06 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F33BC441EF2F23200CEAC06 /* RxCocoa.framework */; };
 		7F33BC491EF2F23200CEAC06 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F33BC451EF2F23200CEAC06 /* RxSwift.framework */; };
+		7F33BC4B1EF2F5DA00CEAC06 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33BC4A1EF2F5DA00CEAC06 /* Network.swift */; };
+		7F33BC4D1EF2F67B00CEAC06 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33BC4C1EF2F67B00CEAC06 /* Request.swift */; };
+		7F33BC4F1EF2F8B300CEAC06 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F33BC4E1EF2F8B300CEAC06 /* Logger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,9 @@
 		7F33BC431EF2F23200CEAC06 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxBlocking.framework"; sourceTree = "<group>"; };
 		7F33BC441EF2F23200CEAC06 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxCocoa.framework"; sourceTree = "<group>"; };
 		7F33BC451EF2F23200CEAC06 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = "Carthage/Checkouts/RxSwift/build/Debug-iphoneos/RxSwift.framework"; sourceTree = "<group>"; };
+		7F33BC4A1EF2F5DA00CEAC06 /* Network.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		7F33BC4C1EF2F67B00CEAC06 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7F33BC4E1EF2F8B300CEAC06 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,9 @@
 			children = (
 				7F33BC2A1EF2ECD200CEAC06 /* Network.h */,
 				7F33BC2B1EF2ECD200CEAC06 /* Info.plist */,
+				7F33BC4A1EF2F5DA00CEAC06 /* Network.swift */,
+				7F33BC4C1EF2F67B00CEAC06 /* Request.swift */,
+				7F33BC4E1EF2F8B300CEAC06 /* Logger.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 					7F33BC261EF2ECD200CEAC06 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = QHH657A9UF;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					7F33BC2F1EF2ECD300CEAC06 = {
@@ -222,6 +232,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F33BC4B1EF2F5DA00CEAC06 /* Network.swift in Sources */,
+				7F33BC4F1EF2F8B300CEAC06 /* Logger.swift in Sources */,
+				7F33BC4D1EF2F67B00CEAC06 /* Request.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +361,7 @@
 		7F33BC3C1EF2ECD300CEAC06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QHH657A9UF;
@@ -365,6 +379,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.livenson.Network;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -372,6 +387,7 @@
 		7F33BC3D1EF2ECD300CEAC06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QHH657A9UF;
@@ -396,6 +412,7 @@
 		7F33BC3F1EF2ECD300CEAC06 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QHH657A9UF;
 				INFOPLIST_FILE = NetworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -408,6 +425,7 @@
 		7F33BC401EF2ECD300CEAC06 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = QHH657A9UF;
 				INFOPLIST_FILE = NetworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
