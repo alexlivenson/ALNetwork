@@ -14,15 +14,9 @@ public class Network {
         return Observable.create { obs -> Disposable in
             let req = Alamofire.request(request)
                 .validate()
-                .responseJSON(completionHandler: { res in
-                    switch res.result {
-                    case .success(let val):
-                        obs.onNext(val)
-                        obs.onCompleted()
-                    case .failure(let err):
-                        obs.onError(err)
-                    }
-                })
+                .responseJSON(
+                    completionHandler: self.handler(obs: obs)
+                )
             
             return Disposables.create {
                 req.cancel()
@@ -34,15 +28,9 @@ public class Network {
         return Observable.create { obs -> Disposable in
             let req = Alamofire.request(request)
                 .validate()
-                .responseData(completionHandler: { res in
-                    switch res.result {
-                    case .success(let val):
-                        obs.onNext(val)
-                        obs.onCompleted()
-                    case .failure(let err):
-                        obs.onError(err)
-                    }
-                })
+                .responseData(
+                    completionHandler: self.handler(obs: obs)
+                )
             
             return Disposables.create {
                 req.cancel()
@@ -54,18 +42,24 @@ public class Network {
         return Observable.create { obs -> Disposable in
             let req = Alamofire.request(request)
                 .validate()
-                .responseString(completionHandler: { res in
-                    switch res.result {
-                    case .success(let val):
-                        obs.onNext(val)
-                        obs.onCompleted()
-                    case .failure(let err):
-                        obs.onError(err)
-                    }
-                })
+                .responseString(
+                    completionHandler: self.handler(obs: obs)
+                )
             
             return Disposables.create {
                 req.cancel()
+            }
+        }
+    }
+    
+    private func handler<T>(obs: AnyObserver<T>) -> ((DataResponse<T>) -> Void) {
+        return { (res: DataResponse<T>) in
+            switch res.result {
+            case .success(let val):
+                obs.onNext(val)
+                obs.onCompleted()
+            case .failure(let err):
+                obs.onError(err)
             }
         }
     }
