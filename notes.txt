@@ -1,0 +1,8 @@
+Ref: https://robots.thoughtbot.com/creating-your-first-ios-framework
+
+In /bin/setup:
+We use --use-submodules in the carthage comman so dependencies are added as
+submodules. This allows users to consume framework outside of carthage.
+
+We use --no-use-binaries to make sure out dependencies are built on our
+system
