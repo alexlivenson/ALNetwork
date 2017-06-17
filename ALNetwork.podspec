@@ -1,5 +1,5 @@
 Pod::Spec.new do |spec|
-  spec.name = "Network"
+  spec.name = "ALNetwork"
   spec.version = "1.0.0"
   spec.summary = "Framework used for networking in my projects."
   spec.homepage = "https://github.com/alexlivenson/Network"
