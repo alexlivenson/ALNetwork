@@ -10,6 +10,11 @@ import Alamofire
 import RxSwift
 
 public class Network {
+    
+    public init() {
+        
+    }
+    
     public func requestJSON(_ request: RequestType) -> Observable<Any> {
         return Observable.create { obs -> Disposable in
             let req = Alamofire.request(request)
